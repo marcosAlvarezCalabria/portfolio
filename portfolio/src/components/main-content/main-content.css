@@ -1,0 +1,10 @@
+
+.dark{
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+
+}
+.light{
+    background-color: aliceblue;
+    color: black;
+}

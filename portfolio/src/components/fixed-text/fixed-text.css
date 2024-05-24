@@ -1,0 +1,19 @@
+.fixed-column{
+    position: fixed;
+    top: 0;
+  
+
+}
+.name-text{
+    font-size: 4rem;
+}
+.dark{
+    background-color: #353535;
+    color: aliceblue;
+
+}
+.light{
+
+    background-color: aliceblue;
+    color: #353535;
+}

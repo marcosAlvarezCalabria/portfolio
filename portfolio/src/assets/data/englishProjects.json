@@ -1,0 +1,16 @@
+{
+    "projects": [
+        {
+            "name": "cineHub",
+            "image": "../images/cineHubImage.png",
+            "resume": "CineHub is a project I developed as part of my portfolio. It is a platform that allows users to explore a wide variety of movies, vote for their favorites, and share opinions. It also includes a feature to find nearby cinemas using Google Maps. I developed the application using the MERN stack (MongoDB, Express.js, React.js, and Node.js) and an integrated API for efficient communication. I used Docker to deploy the application consistently and portably across different environments."
+        },
+        {
+            "name":"ConoXchange",
+            "image": "../images/cineHubImage.png",
+            "resume": "I developed a web platform where users can share their skills and knowledge, interact with others, and organize meetups for learning and teaching. The application enables users to search and offer skills, establish connections, and plan meetings. It is built using MongoDB, Express, Node.js, and Handlebars for view rendering."
+
+        }
+
+    ]
+}
