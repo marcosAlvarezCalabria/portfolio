@@ -4,13 +4,17 @@
             "name": "CineHub",
             "image": "../../../public/images/cineHubImage.png",
             "resume": "CineHub es una plataforma que permite a los usuarios explorar una amplia variedad de películas, votar por sus favoritas y compartir opiniones. También incluye una función para encontrar cines cercanos utilizando Google Maps. ",
-            "technologies":["JavaScript","HTML","CSS","MongoDb","Dockers","React","Node", "Express"]
+            "technologies":["JavaScript","MongoDb","Dockers","React","Node", "Express"],
+            "link": "https://cine-hub.fly.dev/",
+            "git": "https://github.com/marcosAlvarezCalabria/cine-hub-repo.git"
         },
         {
             "name":"ConoXchange",
             "image": "../../../public/images/conoXchangeImage.png",
             "resume": "Desarrollé una plataforma web donde los usuarios pueden compartir sus habilidades y conocimientos, interactuar entre ellos y organizar encuentros para aprender y enseñar. La aplicación permite a los usuarios buscar y ofrecer habilidades, establecer contactos y planificar reuniones.",
-            "technologies":["JavaScript","HTML","CSS","Handlebars","MongoDb","Node","Express"]
+            "technologies":["JavaScript","Handlebars","MongoDb","Node","Express"],
+            "link": "https://conoxchange.fly.dev",
+            "git": "https://github.com/marcosAlvarezCalabria/conoXchange.git"
 
         }
     ]
