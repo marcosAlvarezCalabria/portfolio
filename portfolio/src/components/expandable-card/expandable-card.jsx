@@ -40,7 +40,7 @@ export default function ExpandableCard() {
                                 gap: "1rem",
                                 display: "flex",
                                 flexDirection: "column",
-                                padding: "1.35rem 0",
+                                padding: "1rem ",
                             }}
                         >
                             <div

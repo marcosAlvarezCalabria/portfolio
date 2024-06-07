@@ -8,3 +8,8 @@
     background-color: aliceblue;
     color: black;
 }
+@media(max-width: 768px) {
+    .div-content{
+        justify-content: center !important;
+    }
+}

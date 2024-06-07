@@ -13,7 +13,7 @@ const [mode, setMode] = useState("dark")
         toggleMode
     }
 
-console.log(mode)
+
 
     return (
         <ModeContext.Provider value= {value}>{children}</ModeContext.Provider>

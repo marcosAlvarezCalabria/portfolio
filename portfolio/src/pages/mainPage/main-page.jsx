@@ -13,12 +13,13 @@ function MainPage() {
         setTheme(mode);
     }, [mode]);
 
-    console.log(theme);
+
 
     return (
         <>
-            <Navbar />
-            <div className="main-page row no-gutters">
+           <Navbar></Navbar>
+          
+            <div className="main-page ">
                 <FixedText className={theme.mode} />
                 <MainContent className={theme.mode} />
             </div>

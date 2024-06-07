@@ -11,12 +11,11 @@ function MainContent({ className }) {
         setIsSpanish(language === "spanish");
     }, [language]);
 
-    console.log(language);
-    console.log(isSpanish);
+
 
     return (
-        <div className={`d-flex row justify-content-end ${className}`}>
-            <div className="main-content mt-5 row p-4 col-md-6 overflow-hidden scroll-column">
+        <div className={`div-content d-flex row justify-content-end ${className}`}>
+            <div className="main-content mt-5 row  col-sm-12 col-md-6 overflow-hidden  scroll-column">
                 <section className="col-md-10" id="about">
                     <h2>{isSpanish ? "Sobre mí" : "About Me"}</h2>
                     <p>

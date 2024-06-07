@@ -1,25 +1,27 @@
-import projectsDataEnglish from "../../assets/data/englishProjects.json";
-import projectDataSpanish from "../../assets/data/spanishProjects.json";
+import React, { useContext } from 'react';
+import projectsDataEnglish from '../../assets/data/englishProjects.json';
+import projectsDataSpanish from '../../assets/data/spanishProjects.json';
+import LanguageContext from '../../contexts/language.context';
+import './projects-card.css';
 
-import "./projects-card.css"
+function ProjectsCard({ className }) {
+    const { language } = useContext(LanguageContext);
+    const projects = language === 'spanish' ? projectsDataSpanish.projects : projectsDataEnglish.projects;
 
-function ProjectsCard({className}) {
-    const { projects } = projectDataSpanish;
-    //console.log(projects?.technologies[0])
     return (
-        <>
+        <div className="row">
             {projects.map((project, index) => (
-                <div className={`card project-card mb-3 col-md-8 ${className}`} key={index}>
-                    <img src={project?.image} class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">{project.name}</h5>
-                        <p class="card-text">{project.resume}</p>
-                        <TechnologiesButtons className={className} TechnologiesButtons={project.technologies}/>
-                       
+                <div className={`card project-card mb-3 col-12 col-md-6 ${className}`} key={index}>
+                    <img src={project?.image} className="card-img-top" alt="Project" />
+                    <div className="card-body">
+                        <h5 className="card-title">{project.name}</h5>
+                        <p className="card-text">{project.resume}</p>
+                        {/* Assuming TechnologiesButtons is a component */}
+                        <TechnologiesButtons className={className} technologies={project.technologies} />
                     </div>
                 </div>
             ))}
-        </>
+        </div>
     );
 }
 
