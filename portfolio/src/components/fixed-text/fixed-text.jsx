@@ -5,26 +5,30 @@ import LanguageContext from '../../contexts/language.context';
 
 
 function FixedText({ className }) {
-    const {language} = useContext(LanguageContext)
+    const {language} = useContext(LanguageContext);
     const [isSpanish, setIsSpanish] = useState(language === "spanish");
-    //change color text when scrolling
+    const [decoration, setDecoration] = useState("about");
 
-    const [color, setColor] = useState(false)
-    const changeColor = () => {
-        if(window.scrollY >=120){
-          setColor(true)  
-        }else{
-            setColor(false)
+    const changeDecoration = () => {
+        if(window.scrollY === 0){
+          setDecoration("about")  
+        }else if (window.scrollY > 20 && window.scrollY < 100){
+            setDecoration("projects")
+        }else if (window.scrollY > 100 && window.scrollY < 300){
+            setDecoration("skills")
+        }else if (window.scrollY > 300 && window.scrollY < 300){
+            setDecoration("contact")
         }
     }
-    window.addEventListener("scroll", changeColor)
-    console.log("hola", color)
+    window.addEventListener("scroll", changeDecoration)
+   
 
     useEffect(() => {
         setIsSpanish(language === "spanish");
-    }, [language]);
+        console.log(window.scrollY)
+    }, [language,window.scrollY]);
 
-    
+    console.log(decoration)
     return (
         <>
         
@@ -34,11 +38,11 @@ function FixedText({ className }) {
             <h1 className= 'name-text'>Marcos Alvarez</h1>
             <h5 className=''>Web developer</h5>
             <nav className='nav d-none d-md-block'>
-                <ul className='list-decoration-none'>
-                    <li className='text-decoration-none'><a className='text-decoration-none' href="#about">{isSpanish ? "Sobre mí": "About me"}</a></li>
-                    <li><a className='text-decoration-none' href="#projects">{isSpanish ? "Proyectos": "Projects"}</a></li>
-                    <li><a className='text-decoration-none' href="#skills">Skills</a></li>
-                    <li><a className='text-decoration-none' href="#contact">{isSpanish ? "Contacto": "Contact"}</a></li>
+                <ul className=''>
+                    <li><a className={`text-decoration-${decoration === "about" ? "none": "" }`} href="#about">{isSpanish ? "Sobre mí": "About me"}</a></li>
+                    <li><a className={`text-decoration-${decoration === "projects" ? "none": ""}`} href="#projects">{isSpanish ? "Proyectos": "Projects"}</a></li>
+                    <li><a className={`text-decoration-${decoration === "skills" ? "none": ""}`} href="#skills">Skills</a></li>
+                    <li><a className={`text-decoration-${decoration === "contact" ? "none": ""}`} href="#contact">{isSpanish ? "Contacto": "Contact"}</a></li>
                     <span className='indicator' id='indicator'></span>
                 </ul>
             </nav>

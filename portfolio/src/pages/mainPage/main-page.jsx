@@ -5,6 +5,9 @@ import MainContent from '../../components/main-content/main-content';
 import "./main-page.css";
 import ModeContext from '../../contexts/mode.context';
 
+ 
+
+
 function MainPage() {
     const mode = useContext(ModeContext);
     const [theme, setTheme] = useState(mode);
@@ -17,11 +20,12 @@ function MainPage() {
 
     return (
         <>
-           <Navbar></Navbar>
+            <Navbar></Navbar> 
+          
           
             <div className="main-page ">
-                <FixedText className={theme.mode} />
-                <MainContent className={theme.mode} />
+                 <FixedText className={theme.mode} /> 
+                 <MainContent className={theme.mode} /> 
             </div>
         </>
     );

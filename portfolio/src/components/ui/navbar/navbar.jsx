@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import LanguageContext from '../../../contexts/language.context';
 import ModeContext from '../../../contexts/mode.context';
 import './navbar.css';
+import NavbarMenu from './navbarMenu/navbarMenu';
 
 function NavbarComponent() {
     const { mode, toggleMode } = useContext(ModeContext);
@@ -13,11 +14,7 @@ function NavbarComponent() {
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
-            if (navbarColor === "transparent") {
-                setSunColor("white");
-            } else {
-                setSunColor("white");
-            }
+            setSunColor("white");
 
             if (scrollPosition <= 90 || screenWidth < 480) {
                 setNavbarColor("black");
@@ -25,12 +22,19 @@ function NavbarComponent() {
                 setNavbarColor("transparent");
             }
         };
+
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
         window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleResize);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleResize);
         };
-    }, [mode, navbarColor, screenWidth]);
+    }, [screenWidth]);
 
     const handleMode = () => {
         toggleMode();
@@ -39,45 +43,51 @@ function NavbarComponent() {
     const handleLanguage = () => {
         toggleLanguage();
     };
+
     const languageSelected = language.slice(0, 2).toUpperCase();
-    console.log(screenWidth)
 
     return (
-        <nav style={{ backgroundColor: navbarColor, maxHeight:"65px" }} className="navbar container-fluid sticky-top fixed-top">
-        
+        <nav style={{ backgroundColor: navbarColor, maxHeight: "65px" }} className="navbar container-fluid sticky-top fixed-top">
             <div className="d-flex flex-column justify-content-start">
-                <div className="form-check form-switch">
-                    <input className="form-check-input" onClick={handleMode} type="checkbox" role="switch" id="flexSwitchCheckMode" />
-                    <label className="form-check-label" htmlFor="flexSwitchCheckMode">
-                        <i 
-                            style={{
-                                backgroundColor: sunColor,
-                                width: "24px",
-                                borderRadius: "50%",
-                                border: mode === "light" ? "solid 1px #000" : "none",
-                                cursor: 'pointer',
-                            
-                            }}
-                            className={`p-1 fa fa-${mode === "dark" ? "sun-o" : "moon-o"} mode-icon`}
-                            aria-hidden="true"
-                        ></i>
-                    </label>
-                </div>
-                <div className="form-check form-switch">
-                    <input className="form-check-input" onClick={handleLanguage} type="checkbox" role="switch" id="flexSwitchCheckLanguage" />
-                    <label className="" htmlFor="flexSwitchCheckLanguage">
-                        <p className=' text-center language-icon'
-
-                            style={{
-                                backgroundColor: sunColor,
-                                width: "24px",
-                                height: "26px",
-                                borderRadius: "24%",
-                                cursor: 'pointer',
-                                border: mode === "light" ? "solid 1px #000" : "none" // Aplicación condicional del borde
-                            }}>{languageSelected}</p>
-                    </label>
-                </div>
+                {screenWidth < 767 && <NavbarMenu/>}
+                {screenWidth >= 768 && (
+                    <div className="d-flex">
+                        <div className="form-check form-switch m-2">
+                            <input className="form-check-input" onClick={handleMode} type="checkbox" role="switch" id="flexSwitchCheckMode" />
+                            <label className="form-check-label" htmlFor="flexSwitchCheckMode">
+                                <i
+                                    style={{
+                                        backgroundColor: sunColor,
+                                        width: "24px",
+                                        borderRadius: "50%",
+                                        border: mode === "light" ? "solid 1px #000" : "none",
+                                        cursor: 'pointer',
+                                    }}
+                                    className={`p-1 fa fa-${mode === "dark" ? "sun-o" : "moon-o"} mode-icon`}
+                                    aria-hidden="true"
+                                ></i>
+                            </label>
+                        </div>
+                        <div className="form-check form-switch m-2 ">
+                            <input className="form-check-input " onClick={handleLanguage} type="checkbox" role="switch" id="flexSwitchCheckLanguage" />
+                            <label className="" htmlFor="flexSwitchCheckLanguage">
+                                <p
+                                    className="text-center language-icon"
+                                    style={{
+                                        backgroundColor: sunColor,
+                                        width: "24px",
+                                        height: "26px",
+                                        borderRadius: "24%",
+                                        cursor: 'pointer',
+                                        border: mode === "light" ? "solid 1px #000" : "none",
+                                    }}
+                                >
+                                    {languageSelected}
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+                )}
             </div>
         </nav>
     );
