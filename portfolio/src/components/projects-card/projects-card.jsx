@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import projectsDataEnglish from '../../assets/data/englishProjects.json';
-import projectsDataSpanish from '../../assets/data/spanishProjects.json';
+import projectsDataespañol from '../../assets/data/españolProjects.json';
 import LanguageContext from '../../contexts/language.context';
 import './projects-card.css';
 
 function ProjectsCard({ className }) {
     const { language } = useContext(LanguageContext);
-    const projects = language === 'spanish' ? projectsDataSpanish.projects : projectsDataEnglish.projects;
+    const projects = language === 'español' ? projectsDataespañol.projects : projectsDataEnglish.projects;
 
     return (
         <div className="row">

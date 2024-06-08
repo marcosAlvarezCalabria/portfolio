@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import projectsDataEnglish from "../../assets/data/englishProjects.json";
-import projectDataSpanish from "../../assets/data/spanishProjects.json";
+import projectDataespañol from "../../assets/data/españolProjects.json";
 
 export default function ExpandableCard() {
     const [isCardExpanded, setIsCardExpanded] = useState(false);
     const [expandedProjectId, setExpandedProjectId] = useState(null);
-    const { projects } = projectDataSpanish;
+    const { projects } = projectDataespañol;
 
     const handleProjectShow = (projectId) => {
         setIsCardExpanded(expandedProjectId !== projectId);
