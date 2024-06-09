@@ -41,6 +41,7 @@ export default function ExpandableCard() {
                                 display: "flex",
                                 flexDirection: "column",
                                 padding: "1rem ",
+                            
                             }}
                         >
                             <div

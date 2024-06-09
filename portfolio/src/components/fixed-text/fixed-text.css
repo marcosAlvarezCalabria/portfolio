@@ -6,7 +6,9 @@
 }
 .name-text{
     font-size: 3rem;
+    height: 80%;
 }
+
 .dark{
     background-color: #353535;
     color: aliceblue;
@@ -26,7 +28,7 @@
         height: auto;
         margin-left:0px !important;
         width: 100% !important;
-        height: 50px;
+        height: 0px;
        
        
         
