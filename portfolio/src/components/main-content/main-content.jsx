@@ -53,10 +53,10 @@ function MainContent({ className }) {
                 } else if (scrollY >= 300 && scrollY < 1200) {
                     setFocus("projects");
                    
-                } else if (scrollY >= 1300 && scrollY < 1700) {
+                } else if (scrollY >= 1300 && scrollY < 1600) {
                     setFocus("skills");
                   
-                } else if (scrollY >= 1700 && scrollY < 2900) {
+                } else if (scrollY >= 1600 && scrollY < 2900) {
                     setFocus("contact");
                   
                 }
