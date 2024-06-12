@@ -45,9 +45,9 @@ function NavbarComponent() {
     };
 
     const languageSelected = language.slice(0, 2).toUpperCase();
-
+   
     return (
-        <nav style={{ backgroundColor: navbarColor, maxHeight: "65px" }} className="navbar container-fluid sticky-top fixed-top">
+        <nav style={{ backgroundColor: navbarColor, maxHeight: "65px", boxShadow: screenWidth < 480 ? (mode === "dark" ? "2px 1px 15px rgba(236, 243, 255, 0.9)" : "2px 1px 10px rgba(4, 4, 4, 0.983)") : "none" }} className="navbar container-fluid sticky-top fixed-top">
             <div className="d-flex flex-column justify-content-start">
                 {screenWidth < 767 && <NavbarMenu/>}
                 {screenWidth >= 768 && (
@@ -62,6 +62,8 @@ function NavbarComponent() {
                                         borderRadius: "50%",
                                         border: mode === "light" ? "solid 1px #000" : "none",
                                         cursor: 'pointer',
+                                        
+
                                     }}
                                     className={`p-1 fa fa-${mode === "dark" ? "sun-o" : "moon-o"} mode-icon`}
                                     aria-hidden="true"

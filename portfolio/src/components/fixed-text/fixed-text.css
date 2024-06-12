@@ -33,9 +33,10 @@
        
         
     }
-    .name-text{
-        font-size: 2.5rem;
-    }
+   
+}
+.link-text{
+  font-size: 1.2rem;
 }
 .line-dark{
     width: 0px;
