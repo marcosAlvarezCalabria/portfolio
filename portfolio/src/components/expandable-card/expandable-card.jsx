@@ -6,7 +6,7 @@ import "./expandable-car.css"
 import ModeContext from '../../contexts/mode.context';
 import LanguageContext from '../../contexts/language.context';
 import VideoPlayer from '../react-player/video-player';
-import BasicModal from '../modal-youtuve/modal';
+
 
 export default function ExpandableCard() {
     const [isCardExpanded, setIsCardExpanded] = useState(false);
@@ -83,15 +83,6 @@ export default function ExpandableCard() {
                                         ></i>
                                     </h3>
                                     <div>
-                                    <a href={``}  target="_blank" rel="noopener noreferrer">
-                                            <i
-                                                style={{ color: "black",  marginRight: "10px" }}
-                                                className="fa fa-youtube fa-lg"
-                                                aria-hidden="true">
-                                            </i>
-                                           
-                                        </a>
-
                                     
                                         <a href={`${project.git}`} target="_blank" rel="noopener noreferrer">
                                             <i
@@ -110,9 +101,9 @@ export default function ExpandableCard() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='row' style={{ overflowY: "auto", padding: "" }}>
+                            <div className='row ' style={{ overflowY: "auto", padding: "" }}>
                                 {/* <img src={project.image} alt="" /> */}
-                                <VideoPlayer height="200px" url={project.video} ></VideoPlayer>
+                                <VideoPlayer  height="180px"  url={project.video} ></VideoPlayer>
                                
                                 {expandedProjectId === index && (
                                     <section className='col-md-12' style={{ display: "flex", flexDirection: "column", gap: "1rem", marginTop: 'px' }}>

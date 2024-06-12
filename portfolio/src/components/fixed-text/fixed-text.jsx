@@ -10,19 +10,19 @@ function FixedText({ className }) {
     const { language } = useContext(LanguageContext);
     const { mode } = useContext(ModeContext)
     const [isespañol, setIsespañol] = useState(language === "español");
-    const [decoration, setDecoration] = useState("about");
+    const [decoration, setDecoration] = useState("");
 
 
     const [modeIsDark, setModeIsDark] = useState(mode === "dark")
 
     const changeDecoration = () => {
-        if (window.scrollY === 0) {
+        if (window.scrollY >= 0 && window.scrollY < 250) {
             setDecoration("about")
-        } else if (window.scrollY > 20 && window.scrollY < 100) {
+        } else if (window.scrollY >= 300 && window.scrollY < 1200) {
             setDecoration("projects")
-        } else if (window.scrollY > 100 && window.scrollY < 300) {
+        } else if (window.scrollY >= 1200 && window.scrollY < 1550) {
             setDecoration("skills")
-        } else if (window.scrollY > 300 && window.scrollY < 300) {
+        } else if (window.scrollY >= 1500 && window.scrollY < 2000) {
             setDecoration("contact")
         }
     }
@@ -33,7 +33,7 @@ function FixedText({ className }) {
         setIsespañol(language === "español");
         setModeIsDark(mode === "dark")
 
-    }, [language, window.scrollY, mode]);
+    }, [language, mode]);
 
 
     return (

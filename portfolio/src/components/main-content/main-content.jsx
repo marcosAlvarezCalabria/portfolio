@@ -28,35 +28,44 @@ function MainContent({ className }) {
             setMobileMode(false);
           }
       
-         
+          
         const changeFocus = () => {
             const scrollY = window.scrollY;
             if(mobileMode){
-                if (scrollY >= 100 && scrollY < 300) {
+                if (scrollY >= 500 && scrollY < 750) {
                     setFocus("about");
-                } else if (scrollY >= 200 && scrollY < 1000) {
+                    
+                } else if (scrollY >= 800 && scrollY < 1700) {
                     setFocus("projects");
-                } else if (scrollY >= 1200 && scrollY < 1700) {
+                    
+                } else if (scrollY >= 1650 && scrollY < 1900) {
                     setFocus("skills");
-                } else if (scrollY >= 1500 && scrollY < 2000) {
+                   
+                } else if (scrollY >= 1900 && scrollY < 2000) {
                     setFocus("contact");
+                    
                 }
 
             } else {
-                if (scrollY >= 0 && scrollY < 200) {
+                if (scrollY >= 0 && scrollY < 250) {
                     setFocus("about");
-                } else if (scrollY >= 200 && scrollY < 1000) {
+                  
+                } else if (scrollY >= 300 && scrollY < 1200) {
                     setFocus("projects");
-                } else if (scrollY >= 1000 && scrollY < 1200) {
+                   
+                } else if (scrollY >= 1300 && scrollY < 1700) {
                     setFocus("skills");
-                } else if (scrollY >= 1000 && scrollY < 1900) {
+                  
+                } else if (scrollY >= 1700 && scrollY < 2900) {
                     setFocus("contact");
+                  
                 }
             }
     
             
         };
         window.addEventListener("scroll", changeFocus);
+        console.log(scrollY);
        
         return () => {
             window.removeEventListener("scroll", changeFocus);
@@ -66,6 +75,9 @@ function MainContent({ className }) {
     useEffect(() => {
         setIsEspanol(language === "español");
     }, [language]);
+
+
+      
 
     return (
         <div className={` row justify-content-${mobileMode ? "center" : "end "} ${className}`}>
@@ -121,7 +133,7 @@ function MainContent({ className }) {
                     </div>
                    
                 </section>
-                <footer className="col-md-6 mt-5">
+                <footer className="col-md-7 text-center mt-5">
                 {isEspanol
         ? <span>
             Diseñado de manera libre en <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a> y codificado en <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a> por su servidor. Construido con Vite + React y <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a> CSS. Todo el texto está en la tipografía Inter.
